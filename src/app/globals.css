@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-lotl-pink: #fe0186;
+  --color-lotl-rose: #fe7db0;
+  --color-lotl-cyan: #02f9ff;
+  --color-lotl-mint: #b1fffb;
+  --color-lotl-yellow: #fbef76;
+  --color-lotl-black: #000000;
+  --color-lotl-white: #ffffff;
+  --font-display: var(--font-anton);
+  --font-mono: var(--font-space-mono);
+}
+
+html,
+body {
+  background: var(--color-lotl-cyan);
+}
+
+body {
+  color: var(--color-lotl-black);
+  font-family: var(--font-mono), monospace;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 16px 16px;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
