@@ -36,7 +36,7 @@ export const siteConfig = {
   // run ahead of the sum of amountRaised across djs[].
   totalRaised: 20728,
   // Update this every night you update totals (ISO string).
-  lastUpdated: "2026-09-17T21:00:00-05:00",
+  lastUpdated: "2026-09-17T13:30:00-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 

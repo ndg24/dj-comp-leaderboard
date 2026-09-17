@@ -21,7 +21,7 @@ function PodiumColumn({
           {dj.djName}
         </p>
         <p className="text-[7px] sm:text-[8px] uppercase font-bold text-lotl-black/60 leading-tight truncate">
-          {dj.fullName} &middot; {dj.school}
+          {dj.fullName}
         </p>
         <p className="mt-1 font-display text-sm sm:text-base text-lotl-pink leading-none">
           {formatCurrency(dj.amountRaised)}
