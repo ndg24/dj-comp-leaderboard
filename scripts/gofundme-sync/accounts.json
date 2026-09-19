@@ -1,0 +1,21 @@
+{
+  "campaign_slug": "lotl15",
+  "_comment": "No passwords here. Sessions live in profiles/<gofundme_id>/, created by login.py --setup. manual_adjustment_note is emitted as a code comment above that DJ's entry in src/data/djs.ts.",
+  "roster": [
+    { "id": "tabor-defore",        "djName": "DJ D4",         "fullName": "Tabor DeFore",              "school": "Vanderbilt", "gofundme_id": "dj04", "email": "lightsonthelawn4@yahoo.com",       "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "oliver-broek",        "djName": "So Broek",      "fullName": "Oliver Broek",              "school": "Vanderbilt", "gofundme_id": "dj03", "email": "lightsonthelawn3@yahoo.com",       "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "tom-saul",            "djName": "Tom Saul",      "fullName": "Tom Saul",                  "school": "Vanderbilt", "gofundme_id": "dj08", "email": "lightsonthelawn8@yahoo.com",       "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "daria-mehrnia",       "djName": "65th Vision",   "fullName": "Daria Mehrnia",             "school": "Vanderbilt", "gofundme_id": "dj10", "email": "lightsonthelawn10@protonmail.com", "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "hunter-truitt",       "djName": "DJ HUNT",       "fullName": "Hunter Truitt",             "school": "Belmont",    "gofundme_id": "dj05", "email": "lightsonthelawn5@outlook.com",     "manual_adjustment": 355, "manual_adjustment_note": "Hunter has a standing +$355 from a donation through his personal account that doesn't show up in the tracked numbers." },
+    { "id": "andrew-brodie",       "djName": "Andrew Brodie", "fullName": "Andrew Brodie",             "school": "Tulane",     "gofundme_id": "dj06", "email": "lightsonthelawn6@outlook.com",     "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "yarden-sam",          "djName": "SOMA",          "fullName": "Yarden Sharon & Sam Veiner","school": "Vanderbilt", "gofundme_id": "dj12", "email": "lightsonthelawn12@outlook.com",    "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "joshua-levy",         "djName": "Dj Astro",      "fullName": "Joshua Levy",               "school": "Vanderbilt", "gofundme_id": "dj13", "email": "lightsonthelawn13@outlook.com",    "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "eli-gordon",          "djName": "EA",            "fullName": "Eli Gordon",                "school": "Vanderbilt", "gofundme_id": "dj14", "email": "lightsonthelawn14@outlook.com",    "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "henry-wood",          "djName": "Nockon",        "fullName": "Henry Wood",                "school": "Vanderbilt", "gofundme_id": "dj07", "email": "lightsonthelawn7@outlook.com",     "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "jasper-chazen",       "djName": "Sper",          "fullName": "Jasper Chazen",             "school": "Vanderbilt", "gofundme_id": "dj11", "email": "lightsonthelawn11@gmail.com",      "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "holden-hanenberger",  "djName": "Berger",        "fullName": "Holden Hanenberger",        "school": "Vanderbilt", "gofundme_id": "dj09", "email": "lightsonthelawn9@yahoo.com",       "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "dylan-steele",        "djName": "DJ Amplitude",  "fullName": "Dylan Steele",              "school": "Syracuse",   "gofundme_id": "dj01", "email": "lightsonthelawn1@gmail.com",       "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "mick-hooley",         "djName": "HOOLZ",         "fullName": "Mick Hooley",               "school": "Vanderbilt", "gofundme_id": "dj15", "email": "lightsonthelawn15@outlook.com",    "manual_adjustment": 0,   "manual_adjustment_note": null },
+    { "id": "noah-wenner",         "djName": "Nyehilism",     "fullName": "Noah Nye Wenner",           "school": "Vanderbilt", "gofundme_id": "dj16", "email": "lightsonthelawn17@outlook.com",    "manual_adjustment": 0,   "manual_adjustment_note": null }
+  ]
+}

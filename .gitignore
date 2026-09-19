@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# gofundme sync - never commit browser sessions or passwords
+/scripts/gofundme-sync/.venv/
+/scripts/gofundme-sync/__pycache__/
+/scripts/gofundme-sync/profiles/
+/scripts/gofundme-sync/credentials.json
+/scripts/gofundme-sync/data/
+/scripts/gofundme-sync/*.log
