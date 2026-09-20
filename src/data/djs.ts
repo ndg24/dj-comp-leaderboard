@@ -35,7 +35,7 @@ export const djs: DJ[] = [
 ];
 
 export const siteConfig = {
-  goalAmount: 30000,
+  goalAmount: 35000,
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
