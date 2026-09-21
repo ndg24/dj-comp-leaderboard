@@ -80,7 +80,11 @@ currently Mick Hooley and Noah Nye Wenner) always resolve to their
 `manual_adjustment` alone, so a direct-to-charity donation for either of them
 is entered the same way.
 
-## Every day at 6pm, with manual runs too
+## Every 5 hours, with manual runs too
+
+The scheduled run scrapes, writes `djs.ts`, commits, and pushes - fully
+unattended. The live site updates automatically every run; nothing to review
+or push by hand.
 
 ```
 schtasks /create /tn "LOTL Leaderboard Sync" /xml task.xml
