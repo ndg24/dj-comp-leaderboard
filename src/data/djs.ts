@@ -41,7 +41,7 @@ export const siteConfig = {
   // the sum of amountRaised across djs[].
   totalRaised: 32253,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-20T23:01:57-05:00",
+  lastUpdated: "2026-09-21T04:02:09-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
