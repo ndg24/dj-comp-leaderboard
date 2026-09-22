@@ -18,7 +18,8 @@ export interface DJ {
 export const djs: DJ[] = [
   { id: "tabor-defore", djName: "DJ D4", fullName: "Tabor DeFore", school: "Vanderbilt", amountRaised: 60 },
   { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 8172 },
-  { id: "tom-saul", djName: "Tom Saul", fullName: "Tom Saul", school: "Vanderbilt", amountRaised: 2762 },
+  // Tom has a standing +$5,000 from a verified check donation that doesn't show up in the tracked GoFundMe numbers.
+  { id: "tom-saul", djName: "Tom Saul", fullName: "Tom Saul", school: "Vanderbilt", amountRaised: 7762 },
   { id: "daria-mehrnia", djName: "65th Vision", fullName: "Daria Mehrnia", school: "Vanderbilt", amountRaised: 115 },
   // Hunter has a standing +$355 from a donation through his personal account that doesn't show up in the tracked numbers.
   { id: "hunter-truitt", djName: "DJ HUNT", fullName: "Hunter Truitt", school: "Belmont", amountRaised: 485 },
@@ -41,7 +42,7 @@ export const siteConfig = {
   // the sum of amountRaised across djs[].
   totalRaised: 38991,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T16:02:07-05:00",
+  lastUpdated: "2026-09-22T16:37:08-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
