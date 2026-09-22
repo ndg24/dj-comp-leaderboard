@@ -17,7 +17,7 @@ export interface DJ {
 
 export const djs: DJ[] = [
   { id: "tabor-defore", djName: "DJ D4", fullName: "Tabor DeFore", school: "Vanderbilt", amountRaised: 60 },
-  { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 7672 },
+  { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 8172 },
   { id: "tom-saul", djName: "Tom Saul", fullName: "Tom Saul", school: "Vanderbilt", amountRaised: 2762 },
   { id: "daria-mehrnia", djName: "65th Vision", fullName: "Daria Mehrnia", school: "Vanderbilt", amountRaised: 115 },
   // Hunter has a standing +$355 from a donation through his personal account that doesn't show up in the tracked numbers.
@@ -39,9 +39,9 @@ export const siteConfig = {
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 36731,
+  totalRaised: 37231,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T13:02:06-05:00",
+  lastUpdated: "2026-09-22T13:51:14-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
