@@ -17,7 +17,7 @@ export interface DJ {
 
 export const djs: DJ[] = [
   { id: "tabor-defore", djName: "DJ D4", fullName: "Tabor DeFore", school: "Vanderbilt", amountRaised: 60 },
-  { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 8172 },
+  { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 9722 },
   // Tom has a standing +$5,000 from a verified check donation that doesn't show up in the tracked GoFundMe numbers.
   { id: "tom-saul", djName: "Tom Saul", fullName: "Tom Saul", school: "Vanderbilt", amountRaised: 7762 },
   { id: "daria-mehrnia", djName: "65th Vision", fullName: "Daria Mehrnia", school: "Vanderbilt", amountRaised: 115 },
@@ -30,7 +30,7 @@ export const djs: DJ[] = [
   { id: "henry-wood", djName: "Nockon", fullName: "Henry Wood", school: "Vanderbilt", amountRaised: 350 },
   { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 8402 },
   { id: "holden-hanenberger", djName: "Berger", fullName: "Holden Hanenberger", school: "Vanderbilt", amountRaised: 2735 },
-  { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 10424 },
+  { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 10224 },
   { id: "mick-hooley", djName: "HOOLZ", fullName: "Mick Hooley", school: "Vanderbilt", amountRaised: 0 },
   { id: "noah-wenner", djName: "Nyehilism", fullName: "Noah Nye Wenner", school: "Vanderbilt", amountRaised: 100 },
 ];
@@ -40,9 +40,9 @@ export const siteConfig = {
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 39191,
+  totalRaised: 39311,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T17:01:02-05:00",
+  lastUpdated: "2026-09-22T17:26:27-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
