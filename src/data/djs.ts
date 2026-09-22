@@ -21,16 +21,16 @@ export const djs: DJ[] = [
   // Tom has a standing +$5,000 from a verified check donation that doesn't show up in the tracked GoFundMe numbers.
   { id: "tom-saul", djName: "Tom Saul", fullName: "Tom Saul", school: "Vanderbilt", amountRaised: 7762 },
   { id: "daria-mehrnia", djName: "65th Vision", fullName: "Daria Mehrnia", school: "Vanderbilt", amountRaised: 115 },
-  // Hunter has a standing +$355 from a donation through his personal account that doesn't show up in the tracked numbers.
+  // Hunter has a standing +$355 from a donation made before this tracked account's history that doesn't show up in GoFundMe's own numbers.
   { id: "hunter-truitt", djName: "DJ HUNT", fullName: "Hunter Truitt", school: "Belmont", amountRaised: 485 },
   { id: "andrew-brodie", djName: "Andrew Brodie", fullName: "Andrew Brodie", school: "Tulane", amountRaised: 200 },
   { id: "yarden-sam", djName: "SOMA", fullName: "Yarden Sharon & Sam Veiner", school: "Vanderbilt", amountRaised: 598 },
   { id: "joshua-levy", djName: "Dj Astro", fullName: "Joshua Levy", school: "Vanderbilt", amountRaised: 5 },
   { id: "eli-gordon", djName: "EA", fullName: "Eli Gordon", school: "Vanderbilt", amountRaised: 58 },
   { id: "henry-wood", djName: "Nockon", fullName: "Henry Wood", school: "Vanderbilt", amountRaised: 350 },
-  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 8402 },
+  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 8412 },
   { id: "holden-hanenberger", djName: "Berger", fullName: "Holden Hanenberger", school: "Vanderbilt", amountRaised: 2735 },
-  { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 10224 },
+  { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 10434 },
   { id: "mick-hooley", djName: "HOOLZ", fullName: "Mick Hooley", school: "Vanderbilt", amountRaised: 0 },
   { id: "noah-wenner", djName: "Nyehilism", fullName: "Noah Nye Wenner", school: "Vanderbilt", amountRaised: 100 },
 ];
@@ -40,9 +40,9 @@ export const siteConfig = {
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 39311,
+  totalRaised: 39321,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T17:26:27-05:00",
+  lastUpdated: "2026-09-22T18:02:19-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
