@@ -40,9 +40,9 @@ export const siteConfig = {
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 39626,
+  totalRaised: 42727,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T21:02:17-05:00",
+  lastUpdated: "2026-09-22T22:02:06-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
