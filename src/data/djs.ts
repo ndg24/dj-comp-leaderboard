@@ -18,7 +18,7 @@ export interface DJ {
 export const djs: DJ[] = [
   { id: "tabor-defore", djName: "DJ D4", fullName: "Tabor DeFore", school: "Vanderbilt", amountRaised: 60 },
   // Includes a standing +$50 on top of his GoFundMe number.
-  { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 12222 },
+  { id: "oliver-broek", djName: "So Broek", fullName: "Oliver Broek", school: "Vanderbilt", amountRaised: 13222 },
   // Tom has a standing +$5,000 from a verified check donation that doesn't show up in the tracked GoFundMe numbers.
   { id: "tom-saul", djName: "Tom Saul", fullName: "Tom Saul", school: "Vanderbilt", amountRaised: 7762 },
   { id: "daria-mehrnia", djName: "65th Vision", fullName: "Daria Mehrnia", school: "Vanderbilt", amountRaised: 115 },
@@ -29,7 +29,7 @@ export const djs: DJ[] = [
   { id: "joshua-levy", djName: "Dj Astro", fullName: "Joshua Levy", school: "Vanderbilt", amountRaised: 5 },
   { id: "eli-gordon", djName: "EA", fullName: "Eli Gordon", school: "Vanderbilt", amountRaised: 58 },
   { id: "henry-wood", djName: "Nockon", fullName: "Henry Wood", school: "Vanderbilt", amountRaised: 850 },
-  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 16037 },
+  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 17137 },
   { id: "holden-hanenberger", djName: "Berger", fullName: "Holden Hanenberger", school: "Vanderbilt", amountRaised: 2735 },
   // Dylan has a standing +$1,000 from a donation linked to him that GoFundMe doesn't track.
   { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 16735 },
@@ -38,13 +38,13 @@ export const djs: DJ[] = [
 ];
 
 export const siteConfig = {
-  goalAmount: 45000,
+  goalAmount: 80000,
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 56137,
+  totalRaised: 58237,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T23:42:48-05:00",
+  lastUpdated: "2026-09-22T23:44:31-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
