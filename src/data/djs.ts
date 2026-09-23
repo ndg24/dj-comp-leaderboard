@@ -29,8 +29,8 @@ export const djs: DJ[] = [
   { id: "joshua-levy", djName: "Dj Astro", fullName: "Joshua Levy", school: "Vanderbilt", amountRaised: 5 },
   { id: "eli-gordon", djName: "EA", fullName: "Eli Gordon", school: "Vanderbilt", amountRaised: 58 },
   { id: "henry-wood", djName: "Nockon", fullName: "Henry Wood", school: "Vanderbilt", amountRaised: 850 },
-  // Temporary +$1,000 because GoFundMe's API ($8,737) lags his GoFundMe page ($9,737) as of 2026-09-22 - drop to 0 once the scrape catches up.
-  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 9737 },
+  // Temporary +$4,000 because GoFundMe's API ($8,737) lags his GoFundMe page ($12,737) as of 2026-09-22 - drop to 0 once the scrape catches up.
+  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 12737 },
   { id: "holden-hanenberger", djName: "Berger", fullName: "Holden Hanenberger", school: "Vanderbilt", amountRaised: 2735 },
   // Dylan has a standing +$1,000 from a donation linked to him that GoFundMe doesn't track, plus a temporary +$2,000 because GoFundMe's API ($13,235) lags his GoFundMe page ($15,235) as of 2026-09-22 - drop back to 1000 once the scrape catches up.
   { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 16235 },
@@ -43,9 +43,9 @@ export const siteConfig = {
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 52837,
+  totalRaised: 56137,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T23:39:24-05:00",
+  lastUpdated: "2026-09-22T23:40:57-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
