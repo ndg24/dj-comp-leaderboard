@@ -29,7 +29,7 @@ export const djs: DJ[] = [
   { id: "joshua-levy", djName: "Dj Astro", fullName: "Joshua Levy", school: "Vanderbilt", amountRaised: 5 },
   { id: "eli-gordon", djName: "EA", fullName: "Eli Gordon", school: "Vanderbilt", amountRaised: 58 },
   { id: "henry-wood", djName: "Nockon", fullName: "Henry Wood", school: "Vanderbilt", amountRaised: 850 },
-  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 18067 },
+  { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 19167 },
   { id: "holden-hanenberger", djName: "Berger", fullName: "Holden Hanenberger", school: "Vanderbilt", amountRaised: 2735 },
   // Dylan has a standing +$1,000 from a donation linked to him that GoFundMe doesn't track.
   { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 19235 },
@@ -42,9 +42,9 @@ export const siteConfig = {
   // Real overall campaign total — updated nightly alongside the DJ amounts.
   // Includes donations not tied to any DJ's own link, so it may run ahead of
   // the sum of amountRaised across djs[].
-  totalRaised: 58237,
+  totalRaised: 63017,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T23:54:56-05:00",
+  lastUpdated: "2026-09-22T23:56:32-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
