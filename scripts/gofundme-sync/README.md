@@ -3,12 +3,18 @@
 Pulls each DJ's attributed donation total for the `lotl15` campaign and writes
 `src/data/djs.ts`, then commits and pushes so the live site picks it up.
 
-This intentionally does **not** read the "My Impact" tab's headline number -
-that figure is lifetime impact across every fundraiser an account has ever
-touched, including the account's own personal giving, and drifts from the
-real per-campaign total. Instead it calls GoFundMe's own GraphQL query scoped
-to the `lotl15` campaign slug, the same approach already proven out in the
-sibling `djcompleaderboard` project.
+This reads each account's "My Impact" tab headline - totalDonated (what the
+DJ gave themselves) plus totalInspiredDonationAmounts (what their sharing and
+organizing brought in), via GoFundMe's own GraphQL. That figure is lifetime
+impact across *every* fundraiser an account has ever touched, not just
+`lotl15` - an earlier version of this script scoped strictly to the campaign
+slug instead, specifically to avoid that drift. Since every roster account
+here was created solely for this competition, that risk was accepted in
+exchange for matching the number GoFundMe itself shows each DJ. Every sync
+run prints a `<- supports N fundraisers` flag for any account where
+`totalFundraisersSupported > 1`, so a real drift case (an account touching
+some unrelated fundraiser) doesn't go unnoticed - check `data/run.log` if
+you want to confirm nobody's picked one up.
 
 **Note on that sibling project:** its `profiles/` folder (live GoFundMe login
 sessions for all 13 accounts) is tracked in git and has been pushed to
@@ -67,13 +73,15 @@ has ever been read: it seeds from whatever amounts are already committed in
 
 ## Adjustments a scrape structurally can't see
 
-Some DJs' totals include money that never shows up in this scrape - a
-donation made through their own personal GoFundMe account instead of their
-campaign link, or a gift that went straight to the charity's general pool
-instead of any DJ's own link. Add that as `manual_adjustment` (and an
+Some DJs' totals include money that never touches GoFundMe at all - a paper
+check, cash, or any other off-platform gift. (A donation through the DJ's own
+personal GoFundMe account, as opposed to their campaign link, is *not* in this
+category any more - the impact-based scrape above already picks that up as
+part of `totalDonated`.) Add off-platform money as `manual_adjustment` (and an
 optional `manual_adjustment_note`, rendered as a comment above their line in
 `djs.ts`) in `accounts.json`, rather than hand-editing amounts. Right now
-that's just Hunter Truitt, at +$355.
+that's Hunter Truitt (+$355, a donation from before this account's totals were
+tracked) and Tom Saul (+$5,000, a verified check).
 
 DJs with no GoFundMe account at all (`gofundme_id: null` in `accounts.json` -
 currently Mick Hooley and Noah Nye Wenner) always resolve to their

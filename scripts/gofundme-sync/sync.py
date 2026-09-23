@@ -2,20 +2,26 @@
 """Pull each DJ's attributed GoFundMe total, write src/data/djs.ts, commit, push.
 
 Per account: open the saved Playwright profile headless, load a page so the
-session refreshes its cookies, then page through GetDonationsFromShares over
-HTTP and sum the amounts. Auth is cookie-based - there is no token to pass.
+session refreshes its cookies, then hit GetImpactInsights over HTTP for that
+account's "Your Impact" totals. Auth is cookie-based - there is no token to
+pass.
 
-Scoping the query to the campaign slug is what makes the figure exact. The
-/account/impact headline is lifetime impact across every fundraiser and
-includes the account's own giving, so it drifts; slug-scoped edges don't. See
-../../../djcompleaderboard/README.md for the history of that finding.
+This reads the same headline the /account/impact page shows: totalDonated
+(what the DJ gave themselves) plus totalInspiredDonationAmounts (what their
+sharing/organizing brought in), summed across every fundraiser the account
+has touched - not scoped to this campaign's slug. An earlier version of this
+script deliberately scoped to the campaign slug instead, to avoid exactly that
+cross-fundraiser drift; since every roster account here is single-purpose
+(created only for this competition), that drift risk was accepted in exchange
+for matching the number GoFundMe itself shows each DJ. `collect()` still flags
+any account whose totalFundraisersSupported > 1 so a real drift case (an
+account touching some unrelated fundraiser) doesn't go unnoticed.
 
 Each roster entry in accounts.json carries a manual_adjustment - dollars a DJ
-raised that this scrape structurally cannot see (a donation made through their
-own personal GoFundMe account rather than their campaign link, or a gift that
-went straight to the charity's general pool instead of a DJ's own link). That
-adjustment is added on top of the scraped total, and its note (if any) is
-rendered as a comment above that DJ's line in djs.ts.
+raised that GoFundMe structurally cannot see at all (e.g. a paper check, or
+any other off-platform gift). That adjustment is added on top of the scraped
+total, and its note (if any) is rendered as a comment above that DJ's line in
+djs.ts.
 
     py sync.py            # all accounts, then commit + push
     py sync.py dj01       # one account, for debugging - still writes djs.ts
@@ -54,13 +60,12 @@ GRAPHQL = "https://graphql.gofundme.com/graphql"
 IMPACT_URL = "https://www.gofundme.com/account/impact"
 
 QUERY = """
-query GetDonationsFromShares($fundraiserSlug: ID, $first: Int, $after: String) {
+query GetDJImpactTotals {
   viewer {
     id
-    donationsFromShares(fundraiserSlug: $fundraiserSlug, first: $first, after: $after) {
-      edges { node { id amount { amount currencyCode } createdAt name } }
-      pageInfo { endCursor hasNextPage }
-    }
+    totalDonated { amount currencyCode }
+    totalFundraisersSupported
+    totalInspiredDonationAmounts { amount currencyCode }
   }
 }
 """
@@ -104,46 +109,43 @@ def establish_session(page):
     return page.url
 
 
-def donations_for(ctx, slug):
-    """Page through every donation attributed to this account for one campaign."""
-    out, cursor = [], None
-    while True:
-        resp = ctx.request.post(
-            GRAPHQL,
-            headers={
-                "content-type": "application/json",
-                "origin": "https://www.gofundme.com",
-                "referer": "https://www.gofundme.com/",
-            },
-            data=json.dumps({
-                "operationName": "GetDonationsFromShares",
-                "query": QUERY,
-                # 50 is GoFundMe's hard per-page cap on this field.
-                "variables": {"fundraiserSlug": slug, "first": 50, "after": cursor},
-            }),
-        )
-        if not resp.ok:
-            raise RuntimeError(f"graphql http {resp.status}: {resp.text()[:200]}")
+def impact_totals_for(ctx):
+    """This account's "Your Impact" totals: what they gave + what their sharing brought in.
 
-        body = resp.json()
-        if body.get("errors"):
-            raise RuntimeError(f"graphql errors: {json.dumps(body['errors'])[:300]}")
+    Returns (total_amount, fundraisers_supported). Not scoped to any one
+    campaign - see the module docstring for why that's accepted here.
+    """
+    resp = ctx.request.post(
+        GRAPHQL,
+        headers={
+            "content-type": "application/json",
+            "origin": "https://www.gofundme.com",
+            "referer": "https://www.gofundme.com/",
+        },
+        data=json.dumps({
+            "operationName": "GetDJImpactTotals",
+            "query": QUERY,
+            "variables": {},
+        }),
+    )
+    if not resp.ok:
+        raise RuntimeError(f"graphql http {resp.status}: {resp.text()[:200]}")
 
-        shares = (body.get("data") or {}).get("viewer", {}).get("donationsFromShares")
-        if not shares:
-            raise RuntimeError(f"no donationsFromShares in response: {json.dumps(body)[:200]}")
+    body = resp.json()
+    if body.get("errors"):
+        raise RuntimeError(f"graphql errors: {json.dumps(body['errors'])[:300]}")
 
-        for edge in shares.get("edges") or []:
-            node = edge.get("node") or {}
-            out.append((node.get("amount") or {}).get("amount", 0))
+    viewer = (body.get("data") or {}).get("viewer")
+    if viewer is None:
+        raise RuntimeError(f"no viewer in response: {json.dumps(body)[:200]}")
 
-        info = shares.get("pageInfo") or {}
-        if not info.get("hasNextPage"):
-            return out
-        cursor = info.get("endCursor")
+    donated = (viewer.get("totalDonated") or [{}])[0].get("amount", 0) or 0
+    inspired = (viewer.get("totalInspiredDonationAmounts") or [{}])[0].get("amount", 0) or 0
+    supported = viewer.get("totalFundraisersSupported") or 0
+    return donated + inspired, supported
 
 
-def read_account(gofundme_id, slug):
+def read_account(gofundme_id):
     profile = ROOT / "profiles" / gofundme_id
     if not profile.exists():
         raise RuntimeError("no profile - run login.py for this account")
@@ -157,7 +159,7 @@ def read_account(gofundme_id, slug):
             # the impact page rather than testing for any particular bounce URL.
             if not url.startswith(IMPACT_URL):
                 raise RuntimeError("session expired - re-run login.py for this account")
-            return sum(donations_for(ctx, slug))
+            return impact_totals_for(ctx)
         finally:
             ctx.close()
 
@@ -225,7 +227,6 @@ def collect(argv, config, prior):
     a later change to manual_adjustment in accounts.json still takes effect even
     while an account's scrape is broken.
     """
-    slug = config["campaign_slug"]
     roster = config["roster"]
     wanted = [r for r in roster if r["gofundme_id"] in argv] if argv else roster
 
@@ -242,9 +243,10 @@ def collect(argv, config, prior):
 
         label = f"{gid} {entry['fullName']}"
         try:
-            scraped = read_account(gid, slug)
-            results[entry["id"]] = {"scraped": round(scraped), "status": "ok"}
-            print(f"  ok    {label:28} ${scraped:,.0f}")
+            scraped, supported = read_account(gid)
+            results[entry["id"]] = {"scraped": round(scraped), "status": "ok", "fundraisers_supported": supported}
+            flag = f"  <- supports {supported} fundraisers, not just this one" if supported > 1 else ""
+            print(f"  ok    {label:28} ${scraped:,.0f}{flag}")
         except Exception as exc:
             was = prior.get(entry["id"])
             if was:
