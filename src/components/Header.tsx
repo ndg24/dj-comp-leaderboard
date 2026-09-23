@@ -18,7 +18,7 @@ export default function Header() {
       <div className="flex items-center justify-end gap-1.5 mb-3">
         <span className="w-2 h-2 rounded-full bg-lotl-pink shrink-0" />
         <span className="text-[10px] tracking-widest uppercase font-bold text-lotl-black">
-          Updated {formatUpdated(siteConfig.lastUpdated)}
+          Final results · {formatUpdated(siteConfig.lastUpdated)}
         </span>
       </div>
       <h1 className="font-display text-[19vw] leading-[0.85] tracking-tight text-lotl-black sm:text-[80px]">
@@ -26,6 +26,9 @@ export default function Header() {
       </h1>
       <p className="mt-2 text-sm sm:text-base font-bold uppercase tracking-wide text-lotl-black">
         Student DJ Competition Leaderboard
+      </p>
+      <p className="mt-3 inline-block bg-lotl-black text-lotl-yellow px-2 py-1 text-xs sm:text-sm font-bold uppercase tracking-widest">
+        Final Results
       </p>
     </header>
   );
