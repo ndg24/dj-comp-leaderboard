@@ -30,8 +30,8 @@ export const djs: DJ[] = [
   { id: "henry-wood", djName: "Nockon", fullName: "Henry Wood", school: "Vanderbilt", amountRaised: 850 },
   { id: "jasper-chazen", djName: "Sper", fullName: "Jasper Chazen", school: "Vanderbilt", amountRaised: 8737 },
   { id: "holden-hanenberger", djName: "Berger", fullName: "Holden Hanenberger", school: "Vanderbilt", amountRaised: 2735 },
-  // Dylan has a standing +$1,000 from a donation linked to him that GoFundMe doesn't track.
-  { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 12725 },
+  // Dylan has a standing +$1,000 from a donation linked to him that GoFundMe doesn't track, plus a temporary +$1,510 because GoFundMe's API ($11,725) lags his GoFundMe page ($13,235) as of 2026-09-22 - drop back to 1000 once the scrape catches up.
+  { id: "dylan-steele", djName: "DJ Amplitude", fullName: "Dylan Steele", school: "Syracuse", amountRaised: 14235 },
   { id: "mick-hooley", djName: "HOOLZ", fullName: "Mick Hooley", school: "Vanderbilt", amountRaised: 0 },
   { id: "noah-wenner", djName: "Nyehilism", fullName: "Noah Nye Wenner", school: "Vanderbilt", amountRaised: 100 },
 ];
@@ -43,7 +43,7 @@ export const siteConfig = {
   // the sum of amountRaised across djs[].
   totalRaised: 44537,
   // Updated automatically every time sync.py writes this file.
-  lastUpdated: "2026-09-22T22:40:55-05:00",
+  lastUpdated: "2026-09-22T22:50:41-05:00",
   donateUrl: "https://www.lightsonthelawn.org/dj-competition",
 };
 
